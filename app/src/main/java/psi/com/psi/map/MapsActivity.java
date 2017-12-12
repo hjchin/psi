@@ -15,6 +15,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import psi.com.psi.R;
+import psi.com.psi.data.HttpClient;
 import psi.com.psi.data.psi.PsiResponse;
 import psi.com.psi.data.psi.RegionMetadata;
 
