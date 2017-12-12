@@ -9,10 +9,10 @@ public class PsiResponse {
 
     @SerializedName("region_metadata")
     @Expose
-    public List<RegionMetadata> regionMetadata = null;
+    public final List<RegionMetadata> regionMetadata = null;
     @SerializedName("items")
     @Expose
-    public List<Item> items = null;
+    public final List<Item> items = null;
     @SerializedName("api_info")
     @Expose
     public ApiInfo apiInfo;

@@ -14,10 +14,10 @@ import retrofit2.Response;
  * Created by HJ Chin on 11/12/2017.
  */
 
-public class PsiPresenter {
+class PsiPresenter {
 
-    private HttpClientInterface httpClient;
-    private PsiView view;
+    private final HttpClientInterface httpClient;
+    private final PsiView view;
 
     public PsiPresenter(HttpClientInterface httpClient, PsiView view){
         this.httpClient = httpClient;
