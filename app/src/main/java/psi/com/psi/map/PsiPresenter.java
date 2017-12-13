@@ -5,7 +5,7 @@ import java.util.Map;
 
 import psi.com.psi.data.HttpClientInterface;
 import psi.com.psi.data.PsiApi;
-import psi.com.psi.data.psi.PsiResponse;
+import psi.com.psi.data.psi.Psi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,29 +16,26 @@ import retrofit2.Response;
 
 class PsiPresenter {
 
-    private final HttpClientInterface httpClient;
     private final PsiView view;
+    private final PsiModel model;
 
-    public PsiPresenter(HttpClientInterface httpClient, PsiView view){
-        this.httpClient = httpClient;
+    public PsiPresenter(PsiModel model, PsiView view){
+        this.model = model;
         this.view = view;
     }
 
     public void loadPsi(){
 
-        PsiApi psiApi = httpClient.getClient().create(PsiApi.class);
-        Map<String, String> query = new HashMap<String, String>();
-        Call<PsiResponse> call = psiApi.getPsi(query);
+        model.getPsi(new PsiModel.Callback(){
 
-        call.enqueue(new Callback<PsiResponse>() {
             @Override
-            public void onResponse(Call<PsiResponse> call, Response<PsiResponse> response) {
-                view.showPsi(response.body());
+            public void onResponse(Psi Psi) {
+                view.showPsi(Psi);
             }
 
             @Override
-            public void onFailure(Call<PsiResponse> call, Throwable t) {
-                view.showError(t.getMessage());
+            public void onErrorResponse(String message) {
+                view.showError(message);
             }
         });
     }

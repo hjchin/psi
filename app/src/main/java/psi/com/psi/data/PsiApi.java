@@ -2,7 +2,7 @@ package psi.com.psi.data;
 
 import java.util.Map;
 
-import psi.com.psi.data.psi.PsiResponse;
+import psi.com.psi.data.psi.Psi;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -16,5 +16,5 @@ public interface PsiApi {
 
     @Headers("api-key: AlFPsCUi6nf1eYUsGPyNqAAL6hpStdV4")
     @GET("environment/psi")
-    Call<PsiResponse> getPsi(@QueryMap Map<String, String> options);
+    Call<Psi> getPsi(@QueryMap Map<String, String> options);
 }

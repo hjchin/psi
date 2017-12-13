@@ -1,6 +1,6 @@
 package psi.com.psi.map;
 
-import psi.com.psi.data.psi.PsiResponse;
+import psi.com.psi.data.psi.Psi;
 
 /**
  * Created by HJ Chin on 11/12/2017.
@@ -8,6 +8,6 @@ import psi.com.psi.data.psi.PsiResponse;
 
 interface PsiView {
 
-    void showPsi(PsiResponse result);
+    void showPsi(Psi result);
     void showError(String message);
 }

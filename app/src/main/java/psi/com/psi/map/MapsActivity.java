@@ -16,7 +16,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import psi.com.psi.R;
 import psi.com.psi.data.HttpClient;
-import psi.com.psi.data.psi.PsiResponse;
+import psi.com.psi.data.psi.Psi;
 import psi.com.psi.data.psi.RegionMetadata;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback ,
@@ -25,7 +25,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private View mapView;
     private boolean showPsi;
-    private PsiResponse result;
+    private Psi result;
 
     private static final String NATIONAL = "national";
     private static final String NORTH = "north";
@@ -44,7 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mapView = findViewById(R.id.map);
 
-        PsiPresenter presenter = new PsiPresenter(HttpClient.getInstance(), this);
+        PsiPresenter presenter = new PsiPresenter(new PsiModel(HttpClient.getInstance()), this);
         presenter.loadPsi();
     }
 
@@ -69,7 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    public void showPsi(PsiResponse result) {
+    public void showPsi(Psi result) {
         this.result = result;
 
         if(mMap != null){
