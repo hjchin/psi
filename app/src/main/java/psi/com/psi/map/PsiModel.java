@@ -7,7 +7,6 @@ import psi.com.psi.data.HttpClientInterface;
 import psi.com.psi.data.PsiApi;
 import psi.com.psi.data.psi.Psi;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
